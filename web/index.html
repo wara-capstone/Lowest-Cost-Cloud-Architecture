@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Communication with Spring Boot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Send data to Spring Boot</h1>
+
+        <label for="inputData">Input data:</label>
+        <input type="text" id="inputData">
+
+        <label for="fruitSelection">Choose a fruit:</label>
+        <select id="fruitSelection">
+            <option value="watermelon">수박</option>
+            <option value="strawberry">딸기</option>
+            <option value="grape">포도</option>
+        </select>
+
+        <button id="sendData">Send</button>
+
+        <h2>Response:</h2>
+        <table id="responseTable">
+            <thead>
+                <tr>
+                    <th>Fruit</th>
+                    <th>Response</th>
+                </tr>
+            </thead>
+            <tbody id="responseBody">
+            </tbody>
+        </table>
+        
+        <div id="response"></div>
+    </div>
+    <div id="loading" class="loading">
+        Loading...
+        <div id="loadingTime"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
