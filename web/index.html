@@ -10,14 +10,11 @@
     <div class="container">
         <h1>Send data to Spring Boot</h1>
 
-        <label for="inputData">Input data:</label>
-        <input type="text" id="inputData">
-
         <label for="fruitSelection">Choose a fruit:</label>
         <select id="fruitSelection">
-            <option value="watermelon">수박</option>
-            <option value="strawberry">딸기</option>
-            <option value="grape">포도</option>
+            <option value="수박">수박</option>
+            <option value="딸기">딸기</option>
+            <option value="포도">포도</option>
         </select>
 
         <button id="sendData">Send</button>
@@ -30,22 +27,33 @@
         <div id="loadingTime10000" class="loadingTime">10000 Traffic 버튼에 대한 로딩 시간: <span></span></div> <!-- 10000 Traffic 버튼에 대한 로딩 시간 -->
         
         <h2>Response:</h2>
-        <table id="responseTable">
-            <thead>
-                <tr>
-                    <th>Fruit</th>
-                    <th>Response</th>
-                </tr>
-            </thead>
-            <tbody id="responseBody">
-            </tbody>
-        </table>
-        
+        <div class="card">
+            <div id="pagination" class="pagination">
+                <button id="showAll">All</button>
+                <button id="prevPage" onclick="changePage(-1)">Previous</button>
+                <span id="pageIndicator">1 / x</span>
+                <button id="nextPage" onclick="changePage(1)">Next</button>
+            </div>
+            <table id="responseTable">
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Fruit</th>
+                        <th>Response</th>
+                    </tr>
+                </thead>
+                <tbody id="responseBody">
+                </tbody>
+            </table>
+        </div>
         <div id="response"></div>
     </div>
     <div id="loading" class="loading">
         Loading...
+        <div id="loadingTime">0 seconds</div>
     </div>
+    
+    
     
     <script src="script.js"></script>
 </body>
