@@ -12,7 +12,14 @@
 ## **3. 클라우드 서비스 이해**
 - **장단점**: 스타트업에서 최적의 성능을 위해 클라우드 서비스의 특징과 장단점을 깊게 파악한다.
 
-
+## 기술스택
+|   WEB    |   WAS    |    DB    |   Server   |
+|:--------:|:--------:|:--------:|:----------:|
+| ![HTML](https://img.shields.io/badge/-HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white) | ![Spring Boot](https://img.shields.io/badge/-SpringBoot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white) | ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) | ![NCP](https://img.shields.io/badge/-NCP-03C75A?style=for-the-badge&logo=naver&logoColor=white) |
+| ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) | ![Docker (WAS)](https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) |   | ![Ubuntu](https://img.shields.io/badge/-Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white) |
+| ![CSS](https://img.shields.io/badge/-CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white) |   |   |   |
+| ![Nginx](https://img.shields.io/badge/-Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white) |   |   |   |
+| ![Docker (WEB)](https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) |   |   |   |
 
 ## web Ubuntu 서버 베포
 
@@ -74,7 +81,7 @@ sudo docker-compose up -d --build
 sudo docker-compose down
 ```
 
-**프론트서버 gunicorn을 사용해 정적파일 관리**
+### **프론트서버 gunicorn을 사용해 정적파일 관리**
 ```bash
 sudo docker-compose exec web python manage.py collectstatic
 ```
