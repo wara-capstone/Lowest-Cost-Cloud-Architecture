@@ -1,7 +1,8 @@
 ﻿# thesis_MJMK
 
-## web Ubuntu 서버 베포(Dokcer)
+## web Ubuntu 서버 베포
 
+### Ubuntu
 1. 시스템의 패키지 리스트를 최신 상태로 업데이트:
 ```bash
 sudo apt-get update
@@ -36,3 +37,27 @@ docker --version
 ```bash
 sudo apt install docker-compose
 ```
+
+### Dokcer
+**도커 이미지를 빌드**
+```bash
+sudo docker-compose build
+```
+**컨테이너 run**
+
+```bash
+sudo docker-compose up -d
+```
+
+도커 이미지빌드후 컨테이너 run
+```bash
+sudo docker-compose up -d --build
+```
+
+**현재 실행 중인 도커 컨테이너를 내림**
+
+```bash
+sudo docker-compose down
+```
+
+
