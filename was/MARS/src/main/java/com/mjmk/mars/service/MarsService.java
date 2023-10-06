@@ -2,8 +2,12 @@ package com.mjmk.mars.service;
 
 import com.mjmk.mars.dao.MarsDAO;
 import com.mjmk.mars.dto.MarsDTO;
+import com.mjmk.mars.entity.MarsEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class MarsService {
@@ -16,15 +20,27 @@ public class MarsService {
 
 
 
-    public void testCreat(MarsDTO dto)
+    public String testCreat(String ready)
     {
-        dao.dummyCreate(dto.dTOe());
+        MarsEntity dummyEntity = new MarsEntity();
+        dummyEntity.setCity(ready);
+        dao.dummyCreate(dummyEntity);
+        return "OK";
     }
 
-    public void testRead(String name)
+    public List<MarsDTO> testRead(String name)
     {
-        dao.dummyRead(name);
+        List<MarsEntity> entityList= dao.dummyRead(name);
+        List<MarsDTO> dtoList = new ArrayList<>();
+
+        for(var item: entityList)
+        {
+            dtoList.add(item.eTod());
+        }
+
+        return dtoList;
     }
+
 
 
 }
