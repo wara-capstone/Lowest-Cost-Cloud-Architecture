@@ -1,4 +1,4 @@
-const BASE_URL = 'http://223.130.137.75';
+const BASE_URL = 'http://27.96.130.245';
 
 document.getElementById('generateTraffic1000').addEventListener('click', function() {
     performRequest('generateTraffic1000');
@@ -7,31 +7,16 @@ document.getElementById('generateTraffic1000').addEventListener('click', functio
 document.getElementById('generateTraffic10000').addEventListener('click', function() {
     performRequest('generateTraffic10000');
 });
-document.getElementById('prevPage').addEventListener('click', function() {
-    changePage(-1);
-});
-document.getElementById('nextPage').addEventListener('click', function() {
-    changePage(1);
-});
+
 document.getElementById('sendData').addEventListener('click', getFruitInstance);
 
-document.getElementById('showAll').addEventListener('click', function() {
-    if (isShowingAll) {
-        isShowingAll = false;
-        renderTable();
-    } else {
-        showAllRows();
-    }
-});
-
 let isShowingAll = false;
-
 function getFruitInstance() {
-    const startTime = new Date();
+    const startTime = new Date();  // 요청 시작 시간 기록
     const selectedFruit = document.getElementById('fruitSelection').value;
-    const loadingTimeSendData = document.getElementById('loadingTimeSendData');
+    const loadingTimeSendDataSpan = document.querySelector('#loadingTimeSendData span');
 
-    fetch(`${BASE_URL}/fruits/?name=${selectedFruit}`, {
+    fetch(`${BASE_URL}/fruits/${selectedFruit}`, {
         method: 'GET',
         mode: 'cors',
         headers: {
@@ -40,29 +25,9 @@ function getFruitInstance() {
     })
     .then(response => response.json())
     .then(data => {
-        const endTime = new Date();
+        const endTime = new Date();  // 응답을 받은 시간 기록
         const elapsedTime = (endTime - startTime) / 1000;
-        loadingTimeSendData.textContent += ` ${elapsedTime.toFixed(2)} 초`;
-
-        const tbody = document.getElementById('responseBody');
-        while(tbody.firstChild) {
-            tbody.removeChild(tbody.firstChild);
-        }
-
-        data.forEach((fruit, index) => {
-            const newRow = tbody.insertRow();
-            const numberCell = newRow.insertCell(0);
-            numberCell.className = 'numberCell';
-            const fruitCell = newRow.insertCell(1);
-            const responseCell = newRow.insertCell(2);
-
-            numberCell.textContent = index + 1;
-            fruitCell.textContent = fruit.name;
-            responseCell.textContent = fruit.message;
-        });
-
-        currentPage = 1;  // 페이지 초기화
-        renderTable();    // 테이블 재렌더링
+        loadingTimeSendDataSpan.textContent += `${elapsedTime.toFixed(2)} 초`;  // 응답까지 걸린 시간을 출력
     })
     .catch(error => {
         console.error('Error:', error);
@@ -133,49 +98,4 @@ async function performRequest(buttonId) {
     }
 }
 
-function showAllRows() {
-    const table = document.getElementById("responseBody");
-    const rows = table.querySelectorAll("tr");
 
-    // 모든 행을 표시
-    rows.forEach(row => {
-        row.style.display = '';
-    });
-
-    isShowingAll = true; // 전체 보기 모드 활성화
-}
-
-function changePage(direction) {
-    currentPage += direction;
-    renderTable();
-}
-
-let currentPage = 1;
-const rowsPerPage = 20;
-
-function renderTable() {
-    if (isShowingAll) {
-        isShowingAll = false;
-    }
-
-    const table = document.getElementById("responseBody");
-    const rows = table.querySelectorAll("tr");
-    const totalRows = rows.length;
-    const totalPages = Math.ceil(totalRows / rowsPerPage);
-
-    document.getElementById("pageIndicator").textContent = `${currentPage} / ${totalPages}`;
-
-    rows.forEach(row => {
-        row.style.display = 'none';
-    });
-
-    for(let i = (currentPage - 1) * rowsPerPage; i < currentPage * rowsPerPage && i < totalRows; i++) {
-        rows[i].style.display = '';
-    }
-
-    document.getElementById("prevPage").disabled = currentPage === 1;
-    document.getElementById("nextPage").disabled = currentPage * rowsPerPage >= totalRows;
-}
-
-// 초기 테이블 렌더링
-renderTable();
