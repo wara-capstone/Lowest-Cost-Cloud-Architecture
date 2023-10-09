@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IaaS 1-Tier Architecture Performance Testing</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* styles.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    color: #333;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 10px;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+    color: #555;
+}
+
+select, button {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select:focus, button:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+select {
+    background-color: #fff;
+    cursor: pointer;
+    appearance: none;
+}
+
+button {
+    width: calc(32% - 8px); /* Three buttons, with some space in between */
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    cursor: pointer;
+    margin-right: 12px;
+}
+
+button:last-child {
+    margin-right: 0; /* Remove the margin from the last button */
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+h2 {
+    font-size: 20px;
+    color: #555;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 10px;
+    margin-top: 40px;
+}
+
+.loadingTime {
+    background-color: #f5f7fa;
+    padding: 10px 15px;
+    border-radius: 7px;
+    margin-top: 10px;
+    border: 1px solid #e0e0e0;
+    font-weight: 500;
+}
+
+#loadingTime {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    font-weight: 600;
+}
+
+.loadingContent {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+    text-align: center; /* To center the text */
+}
+
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>[IaaS 1-Tier Architecture Performance Testing]</h1>
+        
+        <div>
+        <label for="fruitSelection">Choose a fruit:</label>
+        <select id="fruitSelection">
+            <option value="수박">수박</option>
+            <option value="딸기">딸기</option>
+            <option value="포도">포도</option>
+            <option value="바나나">바나나</option>
+            <option value="귤">귤</option>
+        </select>
+
+        <button id="sendData">Send</button>
+    </div>
+    <div>
+        <label for="fruitSelection">Traffic Button:</label>
+        <button id="generateTraffic1000">Generate 1000 Traffic</button>
+        <button id="generateTraffic10000">Generate 10000 Traffic</button>
+    </div>
+        <h2>Loading time:</h2>
+        <div id="loadingTimeSendData" class="loadingTime">Volume Testing: <span></span></div>
+        <div id="loadingTime1000" class="loadingTime">1000 Traffic Response Testing: <span></span></div>
+        <div id="loadingTime10000" class="loadingTime">10000 Traffic Response Testing: <span></span></div>
+
+    </div>
+   <div id="loading" class="loading">
+    <div class="loadingContent">
+        Loading...
+        <div id="loadingTime">0 seconds</div>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
