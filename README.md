@@ -18,12 +18,12 @@
 - **성능 비교**: Throughput, Hits per Second, Transaction Performance, HTTP Responses per Second를 비교하여 성능을 분석
 - **시나리오**
 <p float="left">
-  <img src="static/%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A41.png" width="450" />
-  <img src="static/%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A42.png" width="450" /> 
+  <img src="static/%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A41.png" width="420" />
+  <img src="static/%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A42.png" width="420" /> 
 </p>
 <p float="left">
-  <img src="static/%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A43.png" width="450" />
-  <img src="static/%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A44.png" width="450" />
+  <img src="static/%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A43.png" width="420" />
+  <img src="static/%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A44.png" width="420" />
 </p>
 
 
