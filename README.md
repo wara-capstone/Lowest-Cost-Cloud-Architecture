@@ -1,5 +1,5 @@
 ﻿# **스타트업을 위한 계층화 아키텍처 기반 최저비용 클라우드 아키텍처 연구**
-
+[[한국 정보기술 학회 2023년도 추계종합학술대회](https://ki-it.or.kr/)]
 ## 저자
 - [이민재](https://github.com/mimijae), [오민규](https://github.com/kormk) 
 
